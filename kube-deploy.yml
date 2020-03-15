@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-demo
+spec:
+  selector:
+    matchLabels:
+      app: prometheus-demo
+  replicas: 1 # tells deployment to run 1 pod matching the template
+  template:
+    metadata:
+      labels:
+        app: prometheus-demo
+    spec:
+      containers:
+      - name: target-app
+        image: target-app:1.0
+        ports:
+        - containerPort: 8000
+      - name: prom
+        image: prometheus:1.0
+        ports:
+        - containerPort: 9090

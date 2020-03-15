@@ -8,6 +8,11 @@ demo application
 - cd ../prometheus
 - docker image build -t prometheus:1.0 .
 
+## NOTE: If you are using minicube, make sure you run the below command before building the images:
+- eval $(minikube docker-env)
+
+this command points local docker environment to minikube. Without this step, the local images will not be available during the deployment within the minikube vm.
+
 ## You can deploy both the containers manually using docker command as follows:
 
 - docker container run --publish 8080:5000 --detach --name target-app prometheus-target-app:1.0
