@@ -19,3 +19,5 @@ this command points local docker environment to minikube. Without this step, the
 - docker container run --publish 8081:9090 --detach --name prom prometheus:1.0
 
 ## OR, you can deploy them on a kubernetes cluster using the kubernetes deployment configuration file.
+
+- kubectl create -f kube-deploy.yml
